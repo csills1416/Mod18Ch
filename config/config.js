@@ -1,13 +1,5 @@
-const { connect, connection } = require('mongoose');
+const mongoose = require('mongoose');
 
-// Your MongoDB URI
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network';
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/social-network');
 
-// Connect to MongoDB
-connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Export the connection
-module.exports = connection;
+module.exports = mongoose.connection;

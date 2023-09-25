@@ -91,6 +91,10 @@ const users = [
       createdAt: Date.now()
     }
   ]
-  
+  const friends = [
+    {
+      
+    }
+  ]
   module.exports = { users, thoughts, reactions };
   
