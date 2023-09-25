@@ -60,6 +60,37 @@ const users = [
       friends: [],
     },
   ];
+
+  const thoughts = [
+    {
+      username: 'dingusdongus22',
+      thoughtText: 'This is a thought',
+      createdAt: Date.now()
+    },
+    {
+      username: 'ufo000',
+      thoughtText: 'This is another thought',
+      createdAt: Date.now()
+    }
+  ]
+
+  const reactions = [
+    {
+      username: 'dingusdongus22',
+      reactionBody: 'This is a reaction',
+      createdAt: Date.now()
+    },
+    {
+      username: 'biolegs44',
+      reactionBody: 'This is another reaction',
+      createdAt: Date.now()
+    },
+    {
+      username: 'ufo000',
+      reactionBody: 'This is a third reaction',
+      createdAt: Date.now()
+    }
+  ]
   
-  module.exports = { users };
+  module.exports = { users, thoughts, reactions };
   

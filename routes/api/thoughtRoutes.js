@@ -1,17 +1,17 @@
-const router = require('express').Router();
-const {
-    getThought,
-    createThought,
-    updateThought,
-    deleteThought,
-} = require('../../controllers/thought-controller');
+const express = require('express');
+const router = express.Router();
 
-router.route('/').get(getThought).post(createThought);
+// Define your thought-related routes here
+router.get('/', (req, res) => {
+  // Handle GET request for thoughts
+  res.send('GET /api/thoughts');
+});
 
-router
-   .route('/:id')
-   //.put(updateThought)
-   //.delete(deleteThought)
-  .get(getThought)
+router.post('/', (req, res) => {
+  // Handle POST request for thoughts
+  res.send('POST /api/thoughts');
+});
 
-  module.exports = router;
+// Add more routes as needed
+
+module.exports = router;
