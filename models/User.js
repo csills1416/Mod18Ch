@@ -25,6 +25,11 @@ const userSchema = new Schema({
       ref: 'Reaction',
     },
   ],
+  friends: [
+    {
+      type: Number,
+    },
+  ],
 });
 
 const User = model('User', userSchema);

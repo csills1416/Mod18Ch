@@ -27,14 +27,32 @@ const getReaction = async (req, res) => {
 
 const createReaction = async (req, res) => {
   try {
+    // Create the new reaction
     const reaction = await Reaction.create(req.body);
-    res.json(reaction);
+
+    // Obtain the _id of the created reaction
+    const reactionId = reaction._id;
+
+    // Assuming you have the thoughtId available (e.g., from req.params)
+    const thoughtId = req.params.thoughtId;
+
+    // Update the thought document to include the reactionId
+    const updatedThought = await Thought.findByIdAndUpdate(
+      thoughtId,
+      { $push: { reactions: reactionId } }, // Add the reactionId to the reactions array
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedThought) {
+      return res.status(404).json({ message: 'Thought not found' });
+    }
+
+    res.json(updatedThought);
   } catch (err) {
     console.error(err);
     res.status(400).json(err);
   }
 };
-
 const updateReaction = async (req, res) => {
   try {
     const updatedReaction = await Reaction.findOneAndUpdate(
